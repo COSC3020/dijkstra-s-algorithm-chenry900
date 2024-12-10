@@ -1,9 +1,11 @@
 import java.util.PriorityQueue;
 
 class DijkstraNode {
+    var distance;
+    var currentNode;
     
     constructor (node, distance) {
-        this.node = node;
+        this.currentnode = node;
         this.distance = distance;
     }
     Node() {

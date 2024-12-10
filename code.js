@@ -20,7 +20,7 @@ function dijkstra(graph, sourceNode) {
     priority.add(0, 0);
 
     while (!priority.isEmpty()) {
-        check = priority.poll();
+        check = priority.pull();
         for (var i = 0; i < graph.length; i++) {
             if (graph[check][i] > 0) {
                 dist = DijMatrix[check] + graph[check][i];

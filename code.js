@@ -1,32 +1,50 @@
 import java.util.PriorityQueue;
 
+class DijkstraNode {
+    
+    constructor (node, distance) {
+        this.node = node;
+        this.distance = distance;
+    }
+    Node() {
+        return node;
+    }
+    distance() {
+        return distance;
+    }
+    newDistance(distance) {
+        this.distance = distance;
+    }
+
+}
+
 function dijkstra(graph, sourceNode) {
+    var[] Dijkstra = new var[graph.length];
     boolean[] visited = new boolean[graph.length];
-    var[] dist = new var[n];
     var inf = 999;
-    PriorityQueue<Node> priority = new PriorityQueue<>(node, node.distance);
+    PriorityQueue<DijkstraNode> priority = new PriorityQueue<>(node, node.distance);
 
     for (var i = 0; i < graph.length; i++) {
-        if (i == 0){
-            dist[i] = 0;
+        if (i == sourceNode){
+            Dijkstra[i] = new DijkstraNode(sourceNode, inf);
             visited[i] = true;
         }
         else {
-            dist[i] = inf;
+            Dijkstra[i] = new DijkstraNode(i, inf);
             visited[i] = false;
         }
     }
-    priority.add(0, 0);
+    priority.add(Dijkstra[sourceNode]);
 
     while (!priority.isEmpty()) {
-        check = priority.pull();
+        DijkstraNode check = priority.poll();
         for (var i = 0; i < graph.length; i++) {
-            if (graph[check][i] > 0) {
-                var newdist = dist[check[0]] + graph[check[0]][i];
-                if (newdist < dist[i]) {
-                    dist[i] = newdist;
+            if (graph[check.Node()][i] > 0) {
+                var newdist = check.distance() + graph[check.Node()][i];
+                if (newdist < Dijkstra[check.Node()].distnace()) {
+                    Dijkstra[check.Node()].newDistance(newdist);
                     if (!visited[i]) {
-                        priority.add(i, dist[i]);
+                        priority.add(Dijkstra[i]);
                         visited[i] = true;
                     }
                 }

@@ -1,20 +1,19 @@
 import java.util.PriorityQueue;
 
 function dijkstra(graph, sourceNode) {
-    var DijMatrix = [];
-    boolean visited = [];
-    var check, dist;
+    boolean[] visited = new boolean[graph.length];
+    var[] dist = new var[n];
     var inf = 999;
-    PriorityQueue<integer> priority = new PriorityQueue<>();
+    PriorityQueue<Node> priority = new PriorityQueue<>(node, node.distance);
 
     for (var i = 0; i < graph.length; i++) {
         if (i == 0){
-            DijMatrix[i] = 0;
-            visited.push(true);
+            dist[i] = 0;
+            visited[i] = true;
         }
         else {
-            DijMatrix[i] = inf;
-            visited.push(false);
+            dist[i] = inf;
+            visited[i] = false;
         }
     }
     priority.add(0, 0);
@@ -23,11 +22,11 @@ function dijkstra(graph, sourceNode) {
         check = priority.pull();
         for (var i = 0; i < graph.length; i++) {
             if (graph[check][i] > 0) {
-                dist = DijMatrix[check] + graph[check][i];
-                if (dist < DijMatrix[i]) {
-                    DijMatrix[i] = dist;
+                var newdist = dist[check[0]] + graph[check[0]][i];
+                if (newdist < dist[i]) {
+                    dist[i] = newdist;
                     if (!visited[i]) {
-                        priority.add(i, DijMatrix[i]);
+                        priority.add(i, dist[i]);
                         visited[i] = true;
                     }
                 }

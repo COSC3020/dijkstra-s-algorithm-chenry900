@@ -1,10 +1,9 @@
-import java.util.PriorityQueue;
-
 class DijkstraNode {
-    var distance;
-    var currentNode;
+    
     
     constructor (node, distance) {
+        var distance;
+        var currentNode;
         this.currentnode = node;
         this.distance = distance;
     }
@@ -17,6 +16,24 @@ class DijkstraNode {
     newDistance(distance) {
         this.distance = distance;
     }
+
+}
+
+class PriorityQueue {
+    constructor () {
+        var queue = [];
+        var number = 0;
+    }
+
+    add(DijkstraNode) {
+        number++;
+        queue[number] = DijkstraNode.distance();
+        queue[number] = [];
+        queue[number].push(DijkstraNode.Node());
+        for (var i = 0; i < number; i++) {
+            if (queue[i] > queue[number]) {
+                var swap = queue[i]
+    
 
 }
 

@@ -9,7 +9,7 @@ class DijkstraNode {
         this.distance = distance;
     }
     Node() {
-        return node;
+        return currentNode;
     }
     distance() {
         return distance;
